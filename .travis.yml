@@ -9,8 +9,8 @@ before_install:
     - tar --xz -xvf shellcheck-"${scversion}".linux.x86_64.tar.xz
     - sudo cp shellcheck-"${scversion}"/shellcheck /usr/bin/
     - /usr/bin/shellcheck --version
-    - wget "https://media.githubusercontent.com/media/CUCCS/linux-2019-jckling/0x04/0x04/Codes/worldcupplayerinfo.tsv" -O linux_04/linux04/Code/worldcupplayerinfo.tsv
-    - wget "https://media.githubusercontent.com/media/CUCCS/linux-2019-jckling/0x04/0x04/Codes/web_log.tsv" -O linux_04/linux04/Code/web_log.tsv
+    - wget "https://media.githubusercontent.com/media/CUCCS/linux-2019-jckling/0x04/0x04/Codes/worldcupplayerinfo.tsv"
+    - wget "https://media.githubusercontent.com/media/CUCCS/linux-2019-jckling/0x04/0x04/Codes/web_log.tsv"
 
 script:
   - bash test.sh
