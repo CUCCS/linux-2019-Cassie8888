@@ -71,7 +71,7 @@ while [ "$1" != "" ];do
             shift ;;
         "-su")          
             topSH 
-            shift 2 ;;
+            shift ;;
         "-h" )
             Operations
             exit 0
