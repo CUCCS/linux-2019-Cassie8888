@@ -9,16 +9,36 @@ before_install:
     - tar --xz -xvf shellcheck-"${scversion}".linux.x86_64.tar.xz
     - sudo cp shellcheck-"${scversion}"/shellcheck /usr/bin/
     - /usr/bin/shellcheck --version
+    - wget "https://media.githubusercontent.com/media/CUCCS/linux-2019-jckling/0x04/0x04/Codes/worldcupplayerinfo.tsv" -O linux04/Code/worldcupplayerinfo.tsv
+    - wget "https://media.githubusercontent.com/media/CUCCS/linux-2019-jckling/0x04/0x04/Codes/web_log.tsv" -O linux04/Code/web_log.tsv
 
 script:
   - bash test.sh
-  - bash linux04/Code/task1.sh
-  - bash linux04/Code/task2.sh
-  - bash linux04/Code/task3.sh
+  - bash linux04/Code/task1.sh -h
+  - bash linux04/Code/task1.sh -d Picture/ -j 50
+  - bash linux04/Code/task1.sh -d Picture/ -c 100
+  - bash linux04/Code/task1.sh -d Picture/ -w "Hello"
+  - bash linux04/Code/task1.sh -d Picture/ -p "pre"
+  - bash linux04/Code/task1.sh -d Picture/ -s "suffix"
+  - bash linux04/Code/task1.sh -d Picture/ -v
+  - bash linux04/Code/task2.sh -h
+  - bash linux04/Code/task2.sh -a
+  - bash linux04/Code/task2.sh -p
+  - bash linux04/Code/task2.sh -n
+  - bash linux04/Code/task2.sh -m
+  - bash linux04/Code/task3.sh -h
+  - bash linux04/Code/task3.sh -sh
+  - bash linux04/Code/task3.sh -si
+  - bash linux04/Code/task3.sh -ua
+  - bash linux04/Code/task3.sh -rc
+  - bash linux04/Code/task3.sh -ux
+  - bash linux04/Code/task3.sh -su
 
 after_script:
   - /usr/bin/shellcheck test.sh
-  - /usr/bin/shellcheck *.sh
+  - /usr/bin/shellcheck linux04/Code/task1.sh
+  - /usr/bin/shellcheck linux04/Code/task2.sh
+  - /usr/bin/shellcheck linux04/Code/task3.sh
 
 after_failure:
   - id

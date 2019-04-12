@@ -16,12 +16,13 @@ function Operations {
 
 # 对jpeg格式图片进行图片质量压缩
 function compressJPG {                                                                                                                 
-    	[ -d "compressJPG_output" ] || mkdir "compressJPG_output"
-	    for p in "$1"*.jpg; do
-	        fullname="$(basename "$p")"
-		    filename="${fullname%.*}"
-        	convert "$p" -quality "$2"% ./compressJPG_output/"$filename"."jpg"
+    [ -d "compressJPG_output" ] || mkdir "compressJPG_output"
+	for p in "$1"*.jpg; do
+	    fullname="$(basename "$p")"
+		filename="${fullname%.*}"
+        convert "$p" -quality "$2"% ./compressJPG_output/"$filename"."jpg"
 	done
+	echo "Compress JPEG Succeed!"
 }
 
 # 对jpeg/png/svg格式图片在保持原始宽高比的前提下压缩分辨率
@@ -33,6 +34,7 @@ function compressRP {
 		extension="${fullname##*.}"
 		convert "$p" -resize "$2" ./compressRP_output/"$filename"."$extension"
 	done
+	echo "Compress RP Succeed!"
 }
 
 # 对图片批量添加自定义文本水印
@@ -47,6 +49,7 @@ function addWatermark {
 		-size "${width}"x30 caption:"$2" "$p" +swap -gravity south \
 		-composite ./addWatermark_output/"$filename"."$extension"
 	done
+	echo "Add Watermark Succeed!"
 }
 
 # 批量重命名（统一添加文件名前缀或后缀，不影响原始文件扩展名）
@@ -58,6 +61,7 @@ function addPrefix {
 		extension="${fullname##*.}"
 		cp "$p" ./addPrefix_output/"$2""$filename"."$extension"
 	done
+	echo "Add Prefix Succeed!"
 }
 function addSuffix {
 	[ -d "addSuffix_output" ] || mkdir addSuffix_output;
@@ -67,6 +71,7 @@ function addSuffix {
 		extension="${fullname##*.}"
 		cp "$p" ./addSuffix_output/"$filename""$2"."$extension"
 	done
+	echo "Add Suffix Succeed!"
 }
 
 # 将png/svg图片统一转换为jpg格式图片
@@ -78,6 +83,7 @@ function cvt2JPG {
 		extension="${fullname##*.}"
 		convert "$p" ./cvt2JPG_output/"$filename"".jpg"
 	done
+	echo "Convert to JPEG Succeed!"
 }
 
 # 主函数
