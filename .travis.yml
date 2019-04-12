@@ -17,7 +17,6 @@ script:
   - bash linux04/Code/task1.sh -h
   - bash linux04/Code/task1.sh -d linux04/Code/Picture/ -j 50
   - bash linux04/Code/task1.sh -d linux04/Code/Picture/ -c 100
-  - bash linux04/Code/task1.sh -d linux04/Code/Picture/ -w "Hello"
   - bash linux04/Code/task1.sh -d linux04/Code/Picture/ -p "pre"
   - bash linux04/Code/task1.sh -d linux04/Code/Picture/ -s "suffix"
   - bash linux04/Code/task1.sh -d linux04/Code/Picture/ -v
